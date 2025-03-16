@@ -30,9 +30,9 @@ The service will start on http://localhost:8080
 ### Endpoint: GET /statements
 
 ### Query Parameters:
-accountNumber (required): The account number
-fromDate (required): Start date in yyyy-MM-dd format
-toDate (required): End date in yyyy-MM-dd format
+- accountNumber (required): The account number
+- fromDate (required): Start date in yyyy-MM-dd format
+- toDate (required): End date in yyyy-MM-dd format
 
 ### Example Request:
 ```
@@ -51,4 +51,22 @@ Or use API tool like Postman, etc.
         "data": []
     }
 }
+```
+## Design Decisions
+### Asynchronous Processing
+- Uses a thread pool (ThreadPoolTaskExecutor) for asynchronous statement generation
+- Core pool size: 20
+- Max pool size: 50
+- Queue capacity: 1000
+- Rejection policy: AbortPolicy (default) - so users know whether the request was processed or not
+### Validation
+- Uses Jakarta Bean Validation for request validation
+### Service Architecture
+- Statement Service for asynchronous statement generation
+- Mocked Core Banking Service for transaction data
+- Mocked Template Engine Service for PDF generation
+
+## Test Execution
+```bash
+./gradlew test
 ```
