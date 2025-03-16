@@ -23,5 +23,5 @@ public class GeneratePdfReq {
     @NotBlank
     private String templateId;
 
-    private List<Object> data;
+    private List<?> data;
 }
