@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.Optional;
 
 /**
- * DTO for generate statement request
+ * Request DTO for generating bank account statements
  *
  * @author Tao Hong
  * @version 1.0

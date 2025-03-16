@@ -2,6 +2,7 @@ package com.thgeek.banking.statement.service.impl;
 
 import com.thgeek.banking.statement.dto.GenerateStatementReq;
 import com.thgeek.banking.statement.service.StatementService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
@@ -18,6 +19,7 @@ import java.util.concurrent.Executor;
 public class StatementServiceImpl implements StatementService {
     private final Executor stmtGenExecutor;
 
+    @Autowired
     public StatementServiceImpl(@Qualifier("stmtGenExecutor") Executor stmtGenExecutor) {
         this.stmtGenExecutor = stmtGenExecutor;
     }
