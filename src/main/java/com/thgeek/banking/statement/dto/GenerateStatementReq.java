@@ -1,9 +1,9 @@
 package com.thgeek.banking.statement.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
-import java.util.Date;
-import java.util.Optional;
+import java.time.LocalDate;
 
 /**
  * Request DTO for generating bank account statements
@@ -22,26 +22,12 @@ public class GenerateStatementReq {
     /**
      * Start data
      */
-    private Date fromDate;
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate fromDate;
 
     /**
      * End date
      */
-    private Date toDate;
-
-    public Date getFromDate() {
-        return Optional.ofNullable(fromDate).map(date -> new Date(date.getTime())).orElse(null);
-    }
-
-    public void setFromDate(Date fromDate) {
-        this.fromDate = Optional.ofNullable(fromDate).map(date -> new Date(date.getTime())).orElse(null);
-    }
-
-    public Date getToDate() {
-        return Optional.ofNullable(toDate).map(date -> new Date(date.getTime())).orElse(null);
-    }
-
-    public void setToDate(Date toDate) {
-        this.toDate = Optional.ofNullable(toDate).map(date -> new Date(date.getTime())).orElse(null);
-    }
+    @JsonFormat(pattern = "yyyy-MM-dd")
+    private LocalDate toDate;
 }

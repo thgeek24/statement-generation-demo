@@ -62,6 +62,7 @@ public class StatementServiceImpl implements StatementService {
                     break;
                 }
                 transactions.addAll(trxPage.getTransactions());
+                trxQuery.setPageNo(trxQuery.getPageNo() + 1);
                 lastPage = trxPage.getPage().isLastPage();
             }
 

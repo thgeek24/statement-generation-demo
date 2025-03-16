@@ -8,7 +8,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /**
  * Query DTO for transactions
@@ -26,10 +26,10 @@ public class TransactionQuery {
     private String accountNumber;
 
     @NotNull
-    private Date fromDate;
+    private LocalDate fromDate;
 
     @NotNull
-    private Date toDate;
+    private LocalDate toDate;
 
     @NotNull
     @Min(value = 1)
