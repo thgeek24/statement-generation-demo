@@ -1,4 +1,4 @@
-# Banking Statement Service
+# Statement Generation Demo
 
 A Spring Boot service that generates account statements asynchronously.
 
