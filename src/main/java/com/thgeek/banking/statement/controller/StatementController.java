@@ -1,7 +1,9 @@
 package com.thgeek.banking.statement.controller;
 
 import com.thgeek.banking.statement.dto.GenerateStatementReq;
+import com.thgeek.banking.statement.dto.JsonResult;
 import com.thgeek.banking.statement.service.StatementService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,8 +28,8 @@ public class StatementController {
     }
 
     @GetMapping
-    public ResponseEntity<?> generateStatements(GenerateStatementReq req){
+    public ResponseEntity<?> generateStatements(@Valid GenerateStatementReq req){
         statementService.generateStatementsAsync(req);
-        return ResponseEntity.ok("Operation successful");
+        return ResponseEntity.ok(JsonResult.success());
     }
 }
