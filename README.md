@@ -3,10 +3,10 @@
 A Spring Boot service that generates account statements asynchronously.
 
 ## Technology Stack
-Spring Boot 3.4.3
-Java 21
-Gradle
-Mockito
+- Spring Boot 3.4.3
+- Java 21
+- Gradle
+- Mockito
 
 ## Setup Instructions
 
