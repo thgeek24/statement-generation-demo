@@ -23,13 +23,17 @@ public class MockedCoreBankingServiceImpl implements CoreBankingService {
     @Override
     public TransactionPage queryTransactions(TransactionQuery query) {
         if (query.getPageNo() == 1) {
-            Transaction t1 = new Transaction("010000032", LocalDateTime.now(), "Fund transfer", "D", new BigDecimal("100"), "Friends Name", "AED");
-            Transaction t2 = new Transaction("010000033", LocalDateTime.now(), "Bill Payment", "D", new BigDecimal("500"), "Friends Name", "AED");
+            Transaction t1 = new Transaction("010000032", LocalDateTime.parse("2024-11-12T00:00:00"),
+                    "Fund transfer", "D", new BigDecimal("100"), "Friends Name", "AED");
+            Transaction t2 = new Transaction("010000033", LocalDateTime.parse("2024-11-12T00:00:00"),
+                    "Bill Payment", "D", new BigDecimal("500"), "Friends Name", "AED");
             Page page = new Page(false, 1);
             return new TransactionPage(Arrays.asList(t1, t2), page);
         } else if (query.getPageNo() == 2) {
-            Transaction t3 = new Transaction("010000034", LocalDateTime.now(), "Fund transfer", "D", new BigDecimal("100"), "Friends Name", "AED");
-            Transaction t4 = new Transaction("010000035", LocalDateTime.now(), "Bill Payment", "D", new BigDecimal("500"), "Friends Name", "AED");
+            Transaction t3 = new Transaction("010000034", LocalDateTime.parse("2024-11-12T00:00:00"),
+                    "Fund transfer", "D", new BigDecimal("100"), "Friends Name", "AED");
+            Transaction t4 = new Transaction("010000035", LocalDateTime.parse("2024-11-12T00:00:00"),
+                    "Bill Payment", "D", new BigDecimal("500"), "Friends Name", "AED");
             Page page = new Page(true, 2);
             return new TransactionPage(Arrays.asList(t3, t4), page);
         }
